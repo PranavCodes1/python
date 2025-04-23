@@ -1,0 +1,51 @@
+Chapter 1
+
+python is translated programming language
+
+it is powerful,versatile, still simple syntax
+
+to output data- print("Hello All")
+
+to input data example- name = input("What is your name?")
+
+to output data-  print("Hello, " + name + ", nice to meet you")
+
+to take numerical data, use data type, example- 
+year= int(input("when were you born"))
+
+we can use conditional statements such as- if, else, elif,
+
+we can use relational operators such as >,>=,<,<=, etc
+conditional operators ==
+
+if and else condition example-
+
+number = int(input("enter a number"))
+
+if number < 0:
+print("Negative number!")
+
+else:
+print("Positive number!")
+
+print("Thankyou")
+
+
+there needs to be if statement before elif, else statement
+
+elif statement is used for connecting all the conditions and checking the correct one from all of them, the 'if' and 'else' statement breaks as one block, means it will be only applicable for particuar condition and not for all conditions in the code. 
+elif statement example-
+
+animal = input("which animal?")
+
+if animal == "dog" or animal == "cat":
+print("it is a good animal")
+
+elif animal == "lion"
+print("it is not a good animal")
+
+else:
+print("I dont know about this animals")
+
+
+the upper case and lowercase matters,  
