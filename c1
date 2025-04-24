@@ -1,5 +1,6 @@
 
 
+
 Chapter 1
 
 python is translated programming language
@@ -233,5 +234,169 @@ else:
 print("Your are talking about something else")
 
 
+For Finding substring we can use variable.find("enter the string to find")
+
+example-
+
+sentence = input("Give a sentence")
+
+if "cat" in sentence:
+print("you are talking about cats")
+index_of_cat = sentence.fine("cat")
+print(f"it starts at {index_of_cat}")
+else:
+print("you are talking about something else than cats")
+
+Functions are defined as 
+def function_name():
+function code
+
+example-
+def say_hello():
+print("hello all")
+print("nice to meet you")
+
+def ask_name():
+name = input("enter your name")
+print("hello",+"name"+"!")
+
+say_hello()
+ask_name()
+
+
+we can define a variable inside a function  
+Example-
+
+def shout(message):
+print("message")
+
+shout(hello)
+shout(hi)
+
+Function example with using loop
+
+def repeat_hello(number):
+index = 0
+while index < number:
+print("hello")
+index += 1
+
+repeat_hello(3)
+
+so the function will be repeated 3 times
+
+We dont define values to variables, we just define the variables and use it in funtion 
+
+Parameter is the variable defined in the function
+
+Example-
+
+def greet(name):
+print("hello there",name)
+
+
+Argument is the values pssed to the function when its caled
+
+Example-
+greet("Emily")
+
+
+Concatenations means adding strings
+
+Example-
+Message="hello"+" "+"everybody"+"!"
+
+In function we dont define the types of variables earlier, we define its type afer wrriting the variable
+
+example-
+
+def get_sum(first:int,second:int):
+
+value = first + second
+return value
+
+s = get_sum(10,2)
+print(s)
+
+
+Example for repeating function 
+
+def repeat(message:str,n:internet)
+msg=" "
+index = 0
+while index < n:
+msg += message
+index += 1
+
+return msg
+r = repeat("*",50)
+print(r)
+
+so this will print * 50 times
+
+data structures
+
+1. Lists
+list is a collectin of homogeneous items, new list caan be created with brackets 
+example-
+my_list[2,2,3,4,5]
+
+Example-
+
+values = [1,2,3,4,5]
+
+names = ["Peter","Paul","Mary","Paul"]
+
+The list shoukd have the same values 
+
+print(values[0])
+
+so the output will be 1
+
+print(names[-1])
+
+so the output will be paul
+
+
+difference between string and list is that, with list we can assign values
+
+Example-
+
+names=["Peter","Paul","Mary","Paula"]
+
+names[0] = "George""
+
+print(names)
+
+so the output will be- George, Paul, aMarry, Paula
+  
+
+  indexing is similar to strings
+
+  indexing items
+
+  we use append to add any name at the end of the list
+
+example-
+
+names = ["Peter","Paul","Mary","Paula""]
+
+names.append("George")
+names.append("John")
+
+print(names)
+
+so the output will have all the names and names of george and john at the end
+
+We use insert to add a value at the beginning of the list
+
+example-
+numbers=[1,2,3,4,5]
+
+numbers.insert(0,10)
+
+print(numbers)
+
+so the output will be-  10,1,2,3,4,5
 
 
