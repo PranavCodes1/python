@@ -1,3 +1,5 @@
+
+
 Chapter 1
 
 python is translated programming language
@@ -48,4 +50,188 @@ else:
 print("I dont know about this animals")
 
 
-the upper case and lowercase matters,  
+the upper case and lowercase matters, 
+
+we use "and" operator 
+ the and operator is true only if 'a' and 'b' are true
+
+ in 'or' operator only one condition needs to be true
+
+ example of and operator-
+
+    age = int(input("enter your age"))
+    if age >= 18 and age <= 40:
+    print("you can enter")
+    elif age < 18:
+    print("you are too young")
+    else:
+    print("you are too old")
+
+ nested conditions - it has condition statement inside another condition statement
+
+ example-
+
+age = int(input("enter your age"))
+
+if age >= 18:
+   print("you cann enter")
+
+   if age >= 65:
+    print("you wil get a senior citizen discount")
+   else:
+    print("you will not get a discount")
+
+else:
+   print("you are too young to enter")
+
+we use loop for repeating the block multiple times and we provide a condition to end the loop
+repetition with while(True) statement is continued until break is encountered
+
+example-
+
+while True:
+  number = int(input("enter a number, 0 to stop")
+  
+  if number == 0:
+     break
+
+  print("The square of",number,"is",(number * number))
+
+print("Thankyou for using this square program")
+
+   2nd example of loop -
+
+
+counter = 1
+
+   while counter<5:
+   print("Hello")
+
+   counter += 1
+   print(f"the counter is now{counter}")
+
+ print("All done with the loop")   
+
+ infinte loop is a loop which is not terminated
+ it keeps on repeating, so to end an infinite loop we use a condition
+
+ the variables should be defined outside the loop before using them in loop
+
+number += 1 is same as number = number + 1
+
+break statement terminates the loop
+it exists the loop immediately
+
+
+break statement example-
+
+number = 1
+
+while number < 10:
+ print("number")
+
+ if number == 5:
+    break
+
+  number += 1
+
+print("The number is now",(number))
+
+In the above example the output is 1 2 3 4 5 and print will display - the number is now 5
+
+
+The continue statement continues to execute the loop by skipping the conditioned statement.
+
+example-
+
+number = 1
+
+while number < 10:
+  number +=1
+   if number % 3 == 0:
+   continue
+
+   print(f"The number is now {number}")
+
+   In the aabove example the output will be from 2 to 10 and it will skip the numbers which are divisible by 3
+
+nested loop is the loop inside a loop
+
+example of infinite loop-
+,
+while True:
+print("hello")
+  while True:
+  print("Hello again")
+  break
+
+
+  in above example the loop is infinite and it will print hello and hello again, one after another repetetively
+
+
+string has characters, each character in the string has index
+we can extract single charcter by its index
+the first character is stored at position 0
+
+       
+example of string-
+
+name = input("Give a name: ")
+
+first = name[0]
+second = name[1]
+last = name[len(name) - 1]
+print("The first character is {first}")
+print("The second character is {second}")
+print('The last character is {last}")
+
+if we want all the characters then we can use a  loop and give the variable smaller than the length of the name variable
+
+example-    
+
+name = input("Enter a name")
+ index = 0
+ while index < len(name):
+ print(name{index})
+ index += 1 
+
+ this program will print all the characters as a string.
+if we entered name as Pranav then it will print P r a n a v
+
+it also takes space as a string
+
+we can also access the characters from end by using -1 , -2 etc
+
+substring is a string containing characters from a main string
+
+slicing means accessing a specific subset of elements from a sequence. it allows you to extract parts of a sequence by specifying a range.   
+slicing syntax- mystring[begin : end]
+example- string my_string = "Exemplary";
+my_string.substring(2,6) == "empl" 
+
+in above example the e is at position 2 and l is at position 5, so 2,6 shows the character from 2nd position to 5th position as 6th position is exclusive
+example of substring - 
+
+name = input("Enter a name: ")
+first_three = name[0 : 3]
+
+print("first_three)
+
+ so here the output wll be the first thre characters of name entered by user
+
+we use "in" operator to check whether the substring is in the main string
+
+
+example-
+
+sentence = input("Enter a sentence")
+
+if "cat" in sentence:
+print("you are talking about cats")
+
+else:
+print("Your are talking about something else")
+
+
+
+
