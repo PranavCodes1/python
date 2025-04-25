@@ -377,6 +377,13 @@ so the output will be- George, Paul, aMarry, Paula
 
   we use append to add any name at the end of the list
 
+items can be added with functions append and insert
+
+list.append(item) appends at the end of the list
+
+list.insert(index, item) inserts into given index
+
+
 example-
 
 names = ["Peter","Paul","Mary","Paula""]
@@ -399,4 +406,591 @@ print(numbers)
 
 so the output will be-  10,1,2,3,4,5
 
+The length of a list can be returned with len function
+
+this works similarly to strings: it returns the number of items in a list
+
+example-
+
+numbers = [1,2,3,4,5,6,7,8,9,10]
+
+index = 0
+while index < len(numbers):
+  print(numbers[index])
+  index += 1
+
+  so it will give all items in the list one at a time
+
+
+  we can iterate the items in the list by using for loop
+
+we use for loop because if there are more items in the list and until the condition is true it will select next item and store it in a variable and execute code block
+  example-
+
+  animals =["dog","cat","cow"]
+
+  for animal in animals:
+   print(animal)
+
+for loop is used for iterating the items in the list
+
+for loop also iterates the string
+
+example-
+
+name = "Peter"
+
+for character in name:
+  print(character)
+output- P
+        e
+	t
+	e
+	r
+
+
+Function range can be used to create an iterable sequence
+
+This is handy if we want to iterate through a sequence, but do not need the list of values
+
+example-
+
+r = range(2,10)
+
+for i in r:
+ print(i)
+
+ so it will print - 2,3,4,5,6,7,8,9
+
+ example- for calculating the sum from 1 to 10001
+
+
+ s = 0
+ for i in range(1,10001):
+  s += i
+  print(s)
+
+output- 5000500
+
+example to get range as a list
+
+ r = range(10,21)
+ values = list(r)
+ print(values)
+
+ output - [10,11,12,13,14,15,16,17,18,19,20]
+
+
+
+Method sort sorts the items "in place"
+
+Function sorted returns a sorted copy of the list
+
+  
+  if the items in the list are not sorted then sort function makes the items in ascending order
+
+example-
+
+values = [10,2,3,5,7,9]
+
+values.sort()
+print(values)
+
+output- [23,5,7,9,10]
+
+
+also if the names are in the list then after sorting the list the names will be in alphabetical order 
+
+list.sort() changes the items in the list in ascending / alphabetical order 
+
+sorted(list) doesnt change the current list but it creates a copy of the list and makes it in ascending / alphabetical order
+
+example-
+
+names = ["Paul","George","Ringo"]
+
+names_sorted = sorted(names):
+
+print(names)
+print(names_sorted)
+
+output - ["Paul","George","Ringo"]
+         ["George","Paul","Ringo"]
+
+we can remove items from the list by using pop function. and if we dnt provinde the index of the item then it removes the last item from the list
+
+example-
+
+names = ["Paul","George","Ringo"]
+
+names.pop()
+
+print(names)
+
+output-["Paul","George"]
+
+if we provide index, for example-
+
+names.pop(0)
+
+then it willl remove the item at index 0, in above example the name "Paul" is at index 0, so it will be removed from the list
+
+the secnd method is- we use "remove" o rmove an item.
+syntax- listname.remove("itemname")
+
+s from above example if we want to remove george names from the list 
+
+names.remove("George")
+
+print(names)
+
+so ihe output will be all the names excluding George.
+
+if we try to remove the name which does not exist in the list then we will ecounter error
+
+the content of the string cannot be changed once created.
+
+to find number of words in a sentence we use count
+
+Method count returns the number of items in a sequence
+
+Method replace creates a new string with given substring replaced with another substring
+
+example of count-
+
+sentence = input("Give a sentence")
+
+spaces = sentence.count(" ")
+print(f"There are {spaces + 1} words in that sentence")
+
+example for checking the ones in the list
+
+values = [1,2,3,,4,1,1,1]
+
+ones = values.count(1)
+print(ones)
+
+output - 4
+
+
+If we want to replace items in the list we use- listname.replace("currentItemName","ReplacedName")
+
+example-
+
+sentence1 = "Red dog ran over a street"
+sentence2 = sentence.replace("dog","cat")
+print(sentence2)
+
+output- Red cat ran oveer a street
+
+
+The replace doesnt change the original string as after a string is created it cant be changed
+
+so for replacing a string, we have to add it to another variable then replace it.
+
+we can replace strings with other strings.
+
+we use f-stings so that we can include variables in curly braces
+
+example- 
+
+name = "Emily"
+age = 19
+print(f"HI {name} your age is {age} years")
+
+we can have nested lists
+
+example-
+
+matrix = [[1,2,3], [4,5,6], [7,8,9]]
+
+print(matrix[0])
+
+output- [1,2,3]
+
+To access 1st item of 1st list from the matrix
+we will write-
+
+matrix = [[1,2,3], [4,5,6], [7,8,9]]
+
+row1 = matrix[0]
+
+first_item = row1[0]
+print(first_item)
+
+output- 1
+
+another easy method to print the first item in the first row is-
+
+print(matrix[0][0])
+
+here the first[0] indicates the first list and thhe second[0] indicates the first item from that list.
+
+we can acess all the rows in a matrix using for loop
+example-
+
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+
+for row in matrix:
+print(row)
+
+output- [1,2,3]
+        [4,5,6]
+	[7,8,9]
+
+
+to get items from a matrix, we use nested loop
+
+for row in matrix:
+  for item in row:
+  print(item)
+
+  output- 1
+          2
+          3
+          4
+	  5
+	  6
+	  7
+	  8
+	  9
+
+To change a value into a list we need to assign the value to a variable 
+
+example-
+
+grades = [4,3,2,1]
+
+grades[0] += 1
+
+print(grades)
+
+example2-
+
+grades = [4,3,2,1]
+
+for i in range(len(grades)):
+  grades[i] += 1
+ 
+ print(grades)
+
+If we want to change all the items in the matrix we will use range
+
+example- 
+matrix = [[1,2,3],[4,5,6][7,8,9]]
+
+for i in range(len(matrix)):
+ for j in range(len(matrix[i])):
+ matrix[i][j] += 1
+ print(matrix)
+
+ output-[[2,3,4],[5,6,7],[8,9,10]]
+
+ so value of each item has been incresed by 1.
+
+the i iterates through all  the indices and j iterates through all the items 
+
+to check idices of each item -
+example-
+
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+
+for i in range(len(matrix)):
+ for j in range(len(marix[i])):
+ print(f"i: {i}, j: {j}, value: {matrix[i][j]}")
+
+output will be all the indices and its value
+
+References
+
+In python all variables are references 
+
+the value of the variable is a reference object
+
+variable doesnt contain the value, it contains a reference to that value, wwe can use the variable to access the object.
+
+example-
+
+a = [1, 2, 3]
+
+b = a
+
+a[0] = 10
+
+print(b)
+
+output- [10,2,3]
+
+in above example we created a reference of a into b, so making changes in a affects b. so b will contain the changes made in a.
+
+
+Example 2- 
+
+a = [1, 2, 3]
+
+b = a[:]
+
+a[0] = 10
+
+print(a,b)
+
+output- [10,2,3] [1,2,3]
+
+In the above example we have not given the reference of string a to b, instead we have copied the items of string a into b, and after that making changes in a doesnt affect b because a and b are the two separate lists.
+
+we use a[:] for copying fromm one list to another.
+syntax - list2 = list1[:]
+this will copy all the contents from list 1 to list 2 
+
+example of changing values by using function and passing reference to it instead of list
+
+
+def increase_all(values: list):
+    for i in range(len(values)):
+        values[i] += 1
+
+results = [5,2,4,7]
+increase_all(results)  #function call
+print(results)
+
+output- [6,3,5,8]
+
+example to check the second smallest item from the list
+
+def second_smallest(values:list) -> int:
+  values.sort()
+  return values[1]
+
+
+results = [9,7,5,8,6,3]
+
+s = second_smallest(results)
+print(s)
+
+print(results)
+
+output- 5
+        [3,5,6,7,8,9]
+
+in the above example sort is used for sorting the items in ascending order.
+
+but if we dont want to sort the items and still find the second smallest item then we have to make a separate list and use sorted instead of sort.
+
+example-
+
+def second_smallest(values:list) -> int:
+values2 = sorted(values)
+return values2[1]
+
+results = [9,7,5,8,6,3]
+
+s = second_smallest(results)
+print(s)
+
+print(results)
+
+output- 5
+       [9,7,5,8,6,3]
+
+ in the above example we gt the second smallest item from the list without changing its order an without changing the list.
+
+In dictionary, all items consist of key-value pairs
+
+Dictionary is useful (and fast) when we want to access values based on the keys
+  
+  dictionary dont have index number, means theres nohing like first item or last item, it has bunch of items, and each of those items has a key and a value. 
+  example-
+
+results = { "Paul": 9, "Peter": 6, "Paula": 10, "Jim": 6}
+
+print(results["Paul"])
+
+output- 9
+
+Here the key and values is written in curly braces. example - {"Paul":9} so Paul is the key and 9 is the value in the dictionary.
+there can be several items with same values but there must be separate key for all values.
+
+if we want to print key and value then use "items" method. If we want to iterate through both, keys and values, we can use the method items.
+
+syntax - for key, value in translations.items():
+    print("key:", key)
+    print("value:", value)
+
+example-
+
+students = {1234:"Peter", 2345: "Paul", 3456: "Oliver"}
+
+for key,value in students.items():
+print(key,value)
+
+-----------------------------------
+
+dictionary operates to access the data of single item.
+
+but to change the data  of lots of items we use list.
+ 
+-------------------------------------
+
+
+Tuple-
+A list-like data structure
+Syntactical differences:
+tuple is notated with parentheses (), list with brackets []
+tuple is immutable means we cannot change anything.
+
+Tuple is a collection of values that are connected. In tuple there is a collection of items of different types such as strings,integers.
+ Tuples are mant for combining data together into a single object.
+
+
+
+List is a collection of similar items, and the size (or order) may change. In List there are items of same type such as integer.
+list are meant for storing similar kind of objects.
+
+example of tuple-
+
+student = ("Simon Williams",45,"simon@example.com")
+
+example 2-
+
+
+s1 =("Simon Williams",45,"simon@example.cm")
+s2 =("Lisa Jones",99,"lisa@example.com")
+
+students = [s1,s2]
+
+for student in students:
+ print(students[2])
+
+ output- simon@example.com
+        lisa@example.com
+ 
+---------------------------------------
+
+Part 6
+
+we use "with" statement so that python automatically closes the file. it prvents from losing the data from the file.
+
+we use "open" statement to open a file.syntax- with open("filename.txt") as file:
+
+and we use "read" statement to read the file.
+
+example-
+with open("data.txt") as file:
+conten = file.read() 
+print(content)
+
+output- it will give all the data in the file.
+
+another method-
+
+with open("data.txt") as file:
+      for line in file:
+      print(line)
+
+It will print the file, line by line, and will include extra spaces.
+
+itis like we have the extra space character at the end of each string
+
+We use Strip method to remove the white spaces in the beginning and at the end og the string.
+example-
+
+with open("data.txt") as file:
+  for line in file:
+  line = line.strip()
+  print(line)
+
+
+we use line = line.replace("\n","")  
+------------------------
+
+CSV
+Comma Separated Values
+
+Several data points in one row, separated with suitable character (i.e. a separator)
+
+
+String can be splitted into a list with the split method
+
+The separator character is provided as an argument
+
+example- 
+
+string = "2,3,4,6"
+
+values = string.split(",")
+print(values)
+
+output- ['2','3','4','6']
+
+Split gives us data in the form of list.
+
+Example 2-
+
+s = "2,3,4,5"
+
+values = s.split(",")
+number = []
+ for item in values:
+ number.append(in(item))
+
+print(sum(number))
+
+output- 14
+
+-------------------------------
+
+CSV example-
+
+Let There be a file named values.CSV
+
+it consists of integers- 2,3
+                         4,5,
+			 6
+
+code-
+with open("values.csv") as file:
+values = []
+for line in file:
+line = line.replace(""\n","")
+items = line.split(",")
+
+for item in items:
+values.append(int(item))
+
+print(values)
+
+output- [2,3,4,5,6]
+
+So it shows all the items in a file as a list.
+
+To read te file more than ones we use seek method
+
+example-
+
+with open("Data.txt") as file:
+ for line in file:
+ print(line.replace("\n",""))
+
+ file.seek(0)
+
+ for line in file:
+ print("line.replace("\n",""))
+
+ output- IT will print the contents in the file 2 times. 
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+    
 
