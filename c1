@@ -1366,7 +1366,9 @@ if module contains program code outside functions, it is always executed when th
 
 This can be prevented by including code inside if __name__ == "__main__" block
 
-----------------------------------------------Simple if-else conditions can be writen with as a single expression
+----------------------------------------------
+
+Simple if-else conditions can be writen with as a single expression
 
 example-
 
@@ -1391,5 +1393,177 @@ The parameter number can be defined as changing by typing an asterisk in front o
 
 
 * is used for capturing multiple elements in a list or tuple unpacking.
+
+------------------------------------------------------------------
+
+Part 8-
+
+OBJECT ORIENTED PROGRAMMING
+
+Objects-
+Objects are independent.Objects are used to model real-world entities, helping in organizing and managing code.
+An object is an instance of a class. A class is a blueprint for creating objects, and each object has its own state (attributes) and behaviors (methods).
+
+For example, consider a Car class. When you create a specific car, like my_car, that car is an object of the Car class.
+
+
+Methods-
+A method is a function that is defined inside a class and is associated with an object of that class. Methods define the behavior of the objects created from the class.
+Mehtods are always inside the class.
+
+Methods can access and modify an object's attributes. The first parameter of every method is self, which refers to the instance of the object (the object calling the method).
+Methods define the behaviors or actions that objects can perform, enabling reusability, maintainability, and clean organization of code.
+
+Example of objects-
+
+book = { "author": "J.K.Rowlings", "title": "Harry Potter"}
+
+print(book.keys())
+
+print(book.values())
+
+output- dist_keys(['author', 'title'])
+        dist_values(['J.K.Rowlings', 'Harry Potter'])
+
+
+
+Example of Methods-
+class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+    
+    def start_engine(self):
+        print(f"The {self.make} {self.model}'s engine is now running.")
+    
+    def stop_engine(self):
+        print(f"The {self.make} {self.model}'s engine is now off.")
+--------------------------------------
+
+Creating OBJECTS-
+
+lists are declared with square brackets
+example-  my_list = [1,2,3]
+
+strings are declared with quotation marks
+example- my_string = "Hi there!"
+
+dictionaries are declared with curly brackets
+example- my_dict = {"one": 1, "two": 2}
+
+tuples are declared with parentheses
+
+my_uple = (1,2,3)
+
+----------------------------------------
+
+Constructor-
+It is the basic way of generating objects out of a class. It is used to initialize an object when its created. when we make a new object from a class, the constructor sets it up- ggiving it initial values,preparing it to be used.
+
+example-
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+# When you create a Dog object, the constructor (__init__) runs:
+my_dog = Dog("Buddy")
+print(my_dog.name)  # Output: Buddy
+
+In this case, __init__ is the constructor — it sets the dog's name when you create it.
+
+
+-----------------------------------------
+Class is the blueprint of the object
+
+Classes define the structure and functionality of objects
+
+It is (usually) possible to create several objects out of a single class
+
+
+Attribute is a variable belonging to certain object.
+We can have same naming atributes for multiple objects
+
+Methods are always inside the class.
+---------------------------------------
+
+Example2 of objects-
+
+Class Book:
+pass
+
+ novel1 = Book()
+ novel1.author = "Ernest Heningway"
+ 
+ novel2 = Book()
+ novel2.author = "J.K.Rowling"
+ print(novel1.author)
+ print(novel2.author)
+
+
+ #here author is the attribute and novels are the objects in Class Book.
+
+ -----------------------------------------
+
+ Defining a constructor-
+we define a function in class.
+function for constructor is called __init__
+
+when we are defining a method the first parameter is called self.this self parameter is used to access the content of the object.
+
+
+example-
+
+class Book:
+ def __init__(self, author: str, title: str, pages: int)
+
+ self.author = author
+ self.title = title
+ self.pages = pages
+ self.year = 2023
+ self.on_sale = False
+
+ b = Book("Steinback", "Grapes of wrath", 489)
+ b2 = Book("J.K.Rowling", "Harry Potter", 999)
+ 
+print(b.author)
+print(b.on_sale)
+
+books = [b,b2]
+
+for book in books:
+print(book.tile)
+
+Output- it outputs the attribute values
+output is- Steinback
+            False
+            Grapes of wrath
+	    Harry Potter
+
+-------------
+By Using __str__ function we can get all the attributes of the object.
+syntax-   def __str__(self):
+return f*Book(author={self.author}, title={self.title}, pages={self.pages})"
+
+s = b.__str__()
+
+print(s)
+we will get information about bok.
+Output - Book(author=Steinback,title= Graph of wrath, pages= 489)
+----------------------------------------------
+
+Terminology
+
+Client is the program code who is using the class
+
+Encapsulation means hiding the implementation from the client
+
+Ensuring the internal integrity of the class
+
+--------------------------------------------------
+
+
+
+
+	    
 
 
