@@ -971,26 +971,425 @@ with open("Data.txt") as file:
  for line in file:
  print(line.replace("\n",""))
 
- file.seek(0)
+ file.seek(0)  #seek method takes back to the beginning of the file if we set seek to (0)
 
  for line in file:
  print("line.replace("\n",""))
 
  output- IT will print the contents in the file 2 times. 
 
+---------------------------------------------
+
+pass keyword does nothing.The pass keyword in Python is basically a placeholder. It does nothing when it’s executed — it's used when the syntax expects a statement but you don't want to write any code yet.
+You usually use pass when:
+You're building out the structure of your code but haven't implemented the details yet.
+You need a class, function, or loop to exist without doing anything for now (to avoid syntax errors).
+-----------------------------------------------
+
+When we open a file in "w" mode (w stands for write) in Python, here’s what happens:
+If the file doesn't exist, Python will create a new file for you.
+If the file already exists, Python will erase all the contents (truncate it) and start fresh.
+
+and we write in a file using "wrie" method- file.write("content")
 
 
- 
+example-
+with open("example.txt", "w") as file:
+    file.write("Hello, world! \n")
+     file.write("I am ABC \n")
+
+example 2 - for taking input from user to write in a file-
 
 
+with open("result.txt", "w") as file:
+ while true:
+  line = input(""Give a line, empty stops:")
+  if line == "":
+  break
+  file.write(line + "\n")
 
+-----------------------------------------------
+When we open a file in 'a' mode:
+ If the file doesn’t exist, Python creates it (just like 'w' mode).
+If the file already exists, Python keeps the existing content and adds (appends) the new data at the end of the file — without deleting anything.
+example- 
+with open("example.txt", "a") as file:
+    file.write("\nThis is a new line!")
 
+-----------------------------------------------
+example- of string.
 
+data = [1,2,3,4,5,6,7,8,9]
 
- 
+ with open("result.txt","w") as file:
+ s = ""
+ for item in data:
+ s += str(item)
+ s += ","
+s = s[:-1]
 
+ file.write(s)
 
+output- 1,2,3,4,5,6,7,8,9
 
+----------------------------------------------
+ In Python, join() is a string method that joins (combines) a list (or any iterable) of strings into one single string, with a separator that you choose.
 
+ syntax- separator.join(iterable)
+
+separator is what you want between the items (like a space, comma, dash, etc.) iterable is usually a list or tuple of strings.
+
+Example 1: Joining words with spaces
+
+words = ["Hello", "world", "Python", "rocks"]
+sentence = " ".join(words)
+print(sentence)
+
+output-  Hello world Python rocks
+
+Example 2: Joining with commas
     
+items = ["apple", "banana", "cherry"]
+csv = ",".join(items)
+print(csv)
+
+output- apple,banana,cherry
+
+-----------------------------------------------
+The os module in Python is a built-in module that lets you interact with the operating system — like dealing with files, folders, environment variables, and more.
+
+Task with example-
+Get current working directory - os.getcwd()
+Change directory - os.chdir('path/to/folder')
+List files and folders - os.listdir('path')
+Create a new folder - os.mkdir('folder_name')
+Remove a folder - os.rmdir('folder_name')
+Remove a file - os.remove('file_name')
+Check if a file/folder exists - os.path.exists('path')
+
+example- 
+import os
+
+# Get current working directory
+print(os.getcwd())
+
+# Make a new folder
+os.mkdir("new_folder")
+
+# List contents
+print(os.listdir())
+
+----------------------------------------------
+
+try → Try to run some code.
+
+except → If there’s an error, catch it and handle it nicely.
+example-
+try:
+    num = int(input("Enter a number: "))
+    print(10 / num)
+except ValueError:
+    print("That's not a number!")
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+
+ValueError happens if you enter a letter.
+ZeroDivisionError happens if you enter 0.
+
+example2 - 
+
+try:
+    age = int(input("What is your age? "))
+    print(f"You are {age} years old.")
+except ValueError:
+    print("Please enter a valid number for your age!")
+
+Here 
+int(input(...)) tries to convert the input to an integer.
+
+If the user types something that can't be converted (like "Twenty"), it raises a ValueError.
+
+The except block catches that and shows a friendly message instead of crashing.
+
+
+Typical exceptions
+ValueError
+TypeError
+IndexError
+ZeroDivisionError
+Exceptions in file handling
+
+we must always have an except statement which specifies the type of error.
+----------------------------------------------
+
+factorial of a number using function example-
+
+def find_factorial(n: int) -> int:
+if n < 0:
+        return "Factorial not possible for negative numbers."
+    elif n == 0:
+        return 1
+    else:
+        fact = 1
+        for i in range(1, n + 1):
+            fact *= i
+        return fact
+
+number = int(input("Enter a number: "))
+result = find_factorial(number)
+print(f"Factorial: {result}")
+----------------------------------------------
+The raise keyword in Python is used to raise an exception (i.e., trigger an error) manually. It allows you to intentionally stop the normal flow of the program and indicate that something went wrong.
+
+
+syntax example- raise Exception("Error message")
+
+Exception: This is the type of error you're raising (you can use a built-in exception type, like ValueError, or create your own custom exceptions).
+
+"Error message": This is the message that provides information about the error.
+
+------------------------------------------------
+A local variable is a variable that is defined inside a function and is only accessible within that function. Once the function execution finishes, the local variable is destroyed and can no longer be accessed outside of it.
+
+example - 
+def my_function():
+    x = 10  # x is a local variable
+    print(f"Inside the function: x = {x}")
+
+my_function()
+
+# Trying to access x outside the function will raise an error
+# print(x)  # This would cause an error since x is not accessible here
+
+-------------------------------------------------
+A global variable is a variable that is defined outside of any function, and it is accessible from any function in the program. Global variables have a global scope, meaning they can be accessed and modified anywhere in the program after they are defined.
+They are defined outside all functions (usually at the top of your script).
+
+They can be accessed by any function in the program, making them globally accessible.
+
+To modify a global variable inside a function, you need to use the global keyword.
+
+example-
+x = 5  # This is a global variable
+
+def print_global():
+    print(f"The global variable x is: {x}")
+
+print_global()
+
+output- The global variable x is: 5
+
+
+modifying a global variable inside a function-
+
+ to modify a global variable inside a function, you must explicitly use the global keyword. Without it, the function will create a local variable with the same name and will not modify the global variable.
+
+example-
+
+x = 5  # Global variable
+
+def modify_global():
+    global x  # This tells Python we're using the global variable x
+    x = 10
+
+modify_global()
+print(f"After modification, global x is: {x}")
+
+output- After modification, global x is: 10
+
+
+---------------------------------------------------
+
+part 7-
+
+Modules 
+Modules are Python files that contain reusable code (functions, classes, etc.).
+You can import and reuse these modules in different parts of your program.
+The standard library of Python contains several useful modules,you can also create your own modules.
+We have earlier used for example module math to calculate square roots
+
+we have to import modules with "import" statement.
+
+example-
+
+import math
+
+number = 9
+
+print(math.sqrt(number))
+
+output- 3.0
+
+another method
+
+example2-
+
+from math import sqrt
+
+print(sqrt(49))
+
+output- 7.0
+
+
+----------------------------------------------
+
+Standard library modules are described in Python documentation
+
+Operations can be listed with the function dir
+hen you import a module and call dir() on it, it shows you the available attributes and functions within that module.
+
+example-
+import math
+
+# List all the functions and attributes available in the math module
+print(dir(math))
+
+in the output it will show all the function of math module.
+
+
+Types of modules-
+
+1. Random
+Module random can be used to generate pseudo random numbers
+
+example-
+
+import random
+
+print(random.randint(1,6))   #here 1 to 6 is inclusive, any number from 1 to 6 will be picked randomly
+
+we can also run this in a loop 
+example-
+import random
+
+for i in range(10):
+ print(random.randint(1,6))
+
+ output- it will give 10 numbers randomly from 1 to 6 
+
+It works same for Lists.
+
+example-
+
+import random
+
+names = ["Paul", "Peter", "Paula", "Bob"]
+
+for i in range(4):
+print(random.choice(names))
+
+output- random names
+
+
+2. random.sample gives us unique elements from a list,string. It gives multiple elements without repetition.
+
+3. random.shuffle is part of the random module and is used to randomly shuffle the elements of a list in place. Unlike random.sample(), which returns a new list, random.shuffle() modifies the list directly and does not return a new list.
+
+
+4. datetime
+
+A datetime object represents a combination of a date and a time
+
+example- 
+
+from datetime import datetime 
+
+now = datetime.now()
+
+print(now)
+
+
+The timedelta class represents the difference between two datetime objects (a duration).
+
+example- 
+
+from datetime import datetime
+
+now = datetime.now()
+
+# Create a timedelta of 5 days
+five_days = timedelta(days=5)
+
+# Add 5 days to the current date and time
+now = now + five_days
+print("Date after 5 days:",now)
+
+
+datetime object can be formatted with the strftime function. It isused if we want only a specific format. such as month,year,date,time.
+
+%d - Day (01-31)
+%m - Month (01-21)
+%Y - Year (YYYY)
+%H - Hour (24h format)
+%M - Minutes 00 to 59
+%S - Seconds 00 to 59
+
+syntax- 
+datetime.strftime(format)
+
+example-
+
+from datetime import datetime
+
+now = datetime.now()
+
+print(now.strftime("Today is %d. day of %m. month in %Y"))
+
+output- Today is the 19 day of 10 month in 2023.
+
+
+5. CSV Module-
+The csv module provides functionality for reading from and writing to CSV (Comma Separated Values) files. It is part of the Python standard library and is used to handle CSV files with ease. CSV files are commonly used to store tabular data, such as spreadsheets or database exports.
+
+6. urllib.request module is used for reading web page (as HTML).
+
+
+we can create our own modules.
+Any Python program that contains functions can be used as a module.
+
+we have to just import the python module file that we created. 
+
+example of calculator moodule-
+# calculator.py
+
+def add(a: int, b: int):
+ return a + b
+
+def sub(a: int, b: int):
+ return a - b
+
+
+import the above module calculator.py in our code. 
+
+Main Program 
+if module contains program code outside functions, it is always executed when the module is imported
+
+This can be prevented by including code inside if __name__ == "__main__" block
+
+----------------------------------------------Simple if-else conditions can be writen with as a single expression
+
+example-
+
+print("Even" if x % 2 == 0 else "odd")
+
+It works same as 
+if x % 2 == 0:
+  print:("Even")
+else:
+  print("Odd")
+-------------------------------------------------
+Default Parameter Value
+
+Function parameters can be provided default values
+In such cases, the argument may be omitted when calling the function
+
+default values means we can provide the value to the functin but if we dont provide then the function uses its own value.
+
+---------------------------------------------
+Changing number of parameters
+The parameter number can be defined as changing by typing an asterisk in front of parameter name
+
+
+* is used for capturing multiple elements in a list or tuple unpacking.
+
 
