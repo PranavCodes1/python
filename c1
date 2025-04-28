@@ -36,7 +36,7 @@ print("Thankyou")
 
 there needs to be if statement before elif, else statement
 
-elif statement is used for connecting all the conditions and checking the correct one from all of them, the 'if' and 'else' statement breaks as one block, means it will be only applicable for particuar condition and not for all conditions in the code. 
+elif statement is used for connecting all the conditions and checking the correct one from all of them, the 'if' and 'else' statement breaks as one block, means it will be only applicable for particular condition and not for all conditions in the code. 
 elif statement example-
 
 animal = input("which animal?")
@@ -242,7 +242,7 @@ sentence = input("Give a sentence")
 
 if "cat" in sentence:
 print("you are talking about cats")
-index_of_cat = sentence.fine("cat")
+index_of_cat = sentence.find("cat")
 print(f"it starts at {index_of_cat}")
 else:
 print("you are talking about something else than cats")
@@ -295,7 +295,7 @@ def greet(name):
 print("hello there",name)
 
 
-Argument is the values pssed to the function when its caled
+Argument is the values pssed to the function when its called
 
 Example-
 greet("Emily")
@@ -321,7 +321,7 @@ print(s)
 
 Example for repeating function 
 
-def repeat(message:str,n:internet)
+def repeat(message:str,n:int)
 msg=" "
 index = 0
 while index < n:
@@ -337,9 +337,9 @@ so this will print * 50 times
 data structures
 
 1. Lists
-list is a collectin of homogeneous items, new list caan be created with brackets 
+list is a collection of homogeneous items, new list can be created with brackets 
 example-
-my_list[2,2,3,4,5]
+my_list=[2,2,3,4,5]
 
 Example-
 
@@ -368,7 +368,7 @@ names[0] = "George""
 
 print(names)
 
-so the output will be- George, Paul, aMarry, Paula
+so the output will be- George, Paul, Marry, Paula
   
 
   indexing is similar to strings
@@ -496,7 +496,7 @@ values = [10,2,3,5,7,9]
 values.sort()
 print(values)
 
-output- [23,5,7,9,10]
+output- [2,3,5,7,9,10]
 
 
 also if the names are in the list then after sorting the list the names will be in alphabetical order 
@@ -535,7 +535,7 @@ names.pop(0)
 
 then it willl remove the item at index 0, in above example the name "Paul" is at index 0, so it will be removed from the list
 
-the secnd method is- we use "remove" o rmove an item.
+the second method is- we use "remove" o rmove an item.
 syntax- listname.remove("itemname")
 
 s from above example if we want to remove george names from the list 
@@ -546,7 +546,7 @@ print(names)
 
 so ihe output will be all the names excluding George.
 
-if we try to remove the name which does not exist in the list then we will ecounter error
+if we try to remove the name which does not exist in the list then we will encounter error
 
 the content of the string cannot be changed once created.
 
@@ -1453,7 +1453,7 @@ example- my_dict = {"one": 1, "two": 2}
 
 tuples are declared with parentheses
 
-my_uple = (1,2,3)
+my_tuple = (1,2,3)
 
 ----------------------------------------
 
@@ -1547,7 +1547,7 @@ return f*Book(author={self.author}, title={self.title}, pages={self.pages})"
 s = b.__str__()
 
 print(s)
-we will get information about bok.
+we will get information about book.
 Output - Book(author=Steinback,title= Graph of wrath, pages= 489)
 ----------------------------------------------
 
@@ -1560,10 +1560,229 @@ Encapsulation means hiding the implementation from the client
 Ensuring the internal integrity of the class
 
 --------------------------------------------------
+Part 9
+
+__repr__ function gives the string representation of the object.
+syntax- def __repr__(self):
+
+--------------------------------------------
+The Items stored in data structure are actually references to items.
+
+We can use objects as parameters.
+Variable self can be used to references the object itself.
+
+
+Example of passing a list of objects as parameters-
+def add_item(my_list):
+    my_list.append("new item")
+
+items = ["apple", "banana"]
+add_item(items)
+
+print(items)
+
+output-['apple', 'banana', 'new item']
+ 
+
+items (a list object) is passed into add_item.
+
+The function modifies the original list because lists are mutable.
+
+-----------------------------------------
+
+Objects as attributes- Objects can be stored inside other objects.
+
+
+----------------------------------------------
+
+Keyword "None" denotes an empty reference. It doesnt have any value.
+
+----------------------------------------
+Encapsulation
+
+Object offers servics to the client so that
+
+1) utilizing class and object is as simple as possible for the client and
+2) the internal integrity of the object is preserved in all situations.
+
+Hiding attributes
+Class can hide attributes from the client
+This is done by writing a double underscore in front of the attribut name.
+
+example- self.__credits
+
+So if we try to access it then it will give us error stating that there is no attribute.
+
+Getters and setters 
+
+When we want to provide the client(a limited) access to some of the attributes we use getters and etters.
+
+If an access to hidden attribute should be provided, special getter and setter operations can be provided for the client
+it is also possible to just offer one of these, if only read or write access is needed.
+
+example-
+class Person:
+    def __init__(self, name, age):
+        self._name = name  # Using a leading underscore to indicate "protected" attribute
+        self._age = age
+
+    # Getter for name
+    def get_name(self):
+        return self._name
+    
+    # Setter for name
+    def set_name(self, name):
+        if isinstance(name, str):  # Check if the name is a valid string
+            self._name = name
+        else:
+            print("Name must be a string!")
+
+    # Getter for age
+    def get_age(self):
+        return self._age
+
+    # Setter for age
+    def set_age(self, age):
+        if isinstance(age, int) and age > 0:  # Check if age is a positive integer
+            self._age = age
+        else:
+            print("Age must be a positive integer!")
+
+# Creating an object of Person
+person = Person("Alice", 30)
+
+# Using getter methods to access attributes
+print(person.get_name())  # Output: Alice
+print(person.get_age())   # Output: 30
+
+# Using setter methods to modify attributes
+person.set_name("Bob")
+person.set_age(35)
+
+print(person.get_name())  # Output: Bob
+print(person.get_age())   # Output: 35
+
+# Trying to set invalid data
+person.set_name(123)  # Output: Name must be a string!
+person.set_age(-5)    # Output: Age must be a positive integer!
+
+Key points-
+Getter methods return the value of an attribute.
+
+Setter methods modify the value of an attribute, and typically include validation to ensure that the new value is appropriate (for example, checking data types or ranges).
+
+The leading underscore (_name, _age) is a convention indicating the attribute should not be accessed directly but through the getter and setter methods.
+
+Example 2- Using Example 2- Using @property and @setter
+
+class Student:
+
+ def __init__(self,name:str, id: str, credits: int):
+  self.name = name
+  self.id = id
+  self._credits = credits
+
+
+@property
+
+def credits(self):
+ return self._credits + 5
+
+ @credits.setter
+ def credits(self, new_credits: int):
+ self._credits = new_credits
+
+ s1 = Student("Simon","1234",55)
+
+
+ print(s1.credits)
+
+s1.credits = 100
+
+print(s1.credits)
+
+Output- 60
+        105
+
+--------------------------------------------------
+
+Method Visibility
+
+Two underscores before mthod name hides the method from the client.
+example-
+
+class Recipient:
+
+ def __init__(self,name: str, email: str):
+ self.__name = name
+  if self.__check_email(email):
+  self.__email = email
+else:
+ raise ValueError("The email address is not valid")
+
+def __check_email(self,email: str):
+
+#A simple check: the address ,ust be over 5 characters long and contain a dont and an @ character
+
+return len(email) > 5 and "." in email and "@" in email
+
+
+------------------------------------------------
+
+Static members
+
+Class members are called static members. These include - class variables and class methods.
+
+We write a vaiable in Capital letters so that it is a constant value.
+
+static members (or static variables) are variables that are shared among all instances of a class. They are defined within a class, but they are not tied to any specific instance of the class. They can be accessed using the class name or an instance of the class.
+
+We write a static variable inside a class but outside a object. so it can be shared to all instncs of class.
+
+we access it by class variable name.
+
+--------------------------------------------
+ without creating object we can access a class method.
+instead of self we use cls as first parameter.
+ example-
+
+@classmethod
+def output_school_name(cls):
+ print("University of Helsinki")
+
+ student.output_school_name()
+
+ output- University of Helsinki
 
 
 
+Example2- 
+#A class method for validating the license plate
 
-	    
+@classmethod
 
+def license_plate_valid(cls,plate:str):
+  if len(plate) < 3 or "-" not in plate:
+  return False
+
+  #Check the begining and end section of the plate separately
+
+  letters,numbers = plate.split("-")
+
+  #the beginning section can have only letters
+
+  for character in letters:
+   if character.lower() nnot in "abcdefghijklmnopqrstuvwxyz"":
+   return False
+
+   #the end section can only have numbers
+
+   for character in numbers:
+   if character not in "1234567890":
+   return False
+
+ return True
+
+
+---------------------------------------------
 
