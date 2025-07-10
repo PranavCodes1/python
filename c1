@@ -129,7 +129,7 @@ break statement example-
 number = 1
 
 while number < 10:
- print("number")
+ print(number)
 
  if number == 5:
     break
@@ -154,7 +154,7 @@ while number < 10:
 
    print(f"The number is now {number}")
 
-   In the aabove example the output will be from 2 to 10 and it will skip the numbers which are divisible by 3
+   In the above example the output will be from 2 to 10 and it will skip the numbers which are divisible by 3
 
 nested loop is the loop inside a loop
 
@@ -169,7 +169,7 @@ print("hello")
 
   in above example the loop is infinite and it will print hello and hello again, one after another repetetively
 
-
+----------------------------------------------------------------
 string has characters, each character in the string has index
 we can extract single charcter by its index
 the first character is stored at position 0
@@ -193,7 +193,7 @@ example-
 name = input("Enter a name")
  index = 0
  while index < len(name):
- print(name{index})
+ print(name[index])
  index += 1 
 
  this program will print all the characters as a string.
@@ -1784,5 +1784,5 @@ def license_plate_valid(cls,plate:str):
  return True
 
 
----------------------------------------------
+-------------------------------------
 
