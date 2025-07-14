@@ -246,7 +246,7 @@ index_of_cat = sentence.find("cat")
 print(f"it starts at {index_of_cat}")
 else:
 print("you are talking about something else than cats")
-
+--------------------------------------------------------
 Functions are defined as 
 def function_name():
 function code
@@ -295,7 +295,7 @@ def greet(name):
 print("hello there",name)
 
 
-Argument is the values pssed to the function when its called
+Argument is the values passed to the function when its called
 
 Example-
 greet("Emily")
